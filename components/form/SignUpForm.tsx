@@ -15,6 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const FormSchema = z
   .object({
@@ -31,7 +32,8 @@ const FormSchema = z
     message: "Password do not match",
   });
 
-export default function SignUpForm() {
+export default function SignUPForm() {
+  const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -43,6 +45,7 @@ export default function SignUpForm() {
   });
 
   const onSubmit = (values: z.infer<typeof FormSchema>) => {
+    router.push("/sign-in");
     console.log(values);
   };
 

@@ -49,6 +49,9 @@ export default function SignUpForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+        <h1 className="flex justify-center mb-2 text-gray-800 text-2xl font-semibold ">
+          Register
+        </h1>
         <div className="space-y-2">
           <FormField
             control={form.control}

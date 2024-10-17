@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
 
 const FormSchema = z
   .object({
-    email: z.string().min(1, "Email is required").email("Enter a valid email"),
+    email: z.string().min(5, "Email is required").email("Enter a valid email"),
     newPassword: z
       .string()
       .min(1, "Password is required")

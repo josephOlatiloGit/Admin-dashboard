@@ -25,8 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={karla.className}>
-        <main className="h-screen flex flex-col justify-center items-center">
-          <Navbar />
+        <main className="h-screen flex  ">
+          <Sidebar />
+
           {children}
         </main>
       </body>

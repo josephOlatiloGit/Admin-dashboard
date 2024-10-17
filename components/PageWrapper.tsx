@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
+// import React, { ReactNode } from "react";
 
-export default function PageWrapper({ children }: { children: ReactNode }) {
-  return <div>{children}</div>;
-}
+// export default function PageWrapper({ children }: { children: ReactNode }) {
+//   return <div>{children}</div>;
+// }

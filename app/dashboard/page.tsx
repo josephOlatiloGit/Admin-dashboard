@@ -1,15 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  Moon,
-  Sun,
-  Menu,
-  Search,
-  Bell,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import {
   Table,
@@ -21,14 +13,7 @@ import {
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import {
   BarChart,
   Bar,
@@ -38,6 +23,8 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 
 // Mock data for the dashboard
 const overviewData = [
@@ -96,7 +83,7 @@ export default function AdminDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
-  const { theme, setTheme } = useTheme();
+
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -111,95 +98,10 @@ export default function AdminDashboard() {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
-    <div className="flex h-screen bg-background text-foreground">
-      {/* Sidebar */}
-      <aside
-        className={`bg-card w-64 min-h-screen p-4 ${
-          sidebarOpen ? "block" : "hidden"
-        } md:block`}
-      >
-        <div className="flex items-center mb-6">
-          <span className="text-xl font-bold">AdminDash</span>
-        </div>
-        <nav>
-          {["Dashboard", "Users", "Services", "Analytics", "Settings"].map(
-            (item) => (
-              <a
-                key={item}
-                href="#"
-                className="flex items-center p-2 mt-2 text-foreground hover:bg-accent rounded"
-              >
-                {item}
-              </a>
-            )
-          )}
-        </nav>
-      </aside>
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header */}
-        <header className="bg-card shadow-sm">
-          <div className="flex items-center justify-between p-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-            >
-              <Menu className="h-6 w-6" />
-            </Button>
-            <div className="flex items-center">
-              <Input
-                type="search"
-                placeholder="Search..."
-                className="w-64 mr-2"
-              />
-              <Button variant="ghost" size="icon">
-                <Search className="h-5 w-5" />
-              </Button>
-            </div>
-            <div className="flex items-center">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="mr-2"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              >
-                {theme === "dark" ? (
-                  <Sun className="h-5 w-5" />
-                ) : (
-                  <Moon className="h-5 w-5" />
-                )}
-              </Button>
-              <Button variant="ghost" size="icon" className="mr-2">
-                <Bell className="h-5 w-5" />
-              </Button>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    className="relative h-8 w-8 rounded-full"
-                  >
-                    <Avatar className="h-8 w-8">
-                      <AvatarImage
-                        src="/placeholder.svg?height=32&width=32"
-                        alt="@shadcn"
-                      />
-                      <AvatarFallback>SC</AvatarFallback>
-                    </Avatar>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56" align="end" forceMount>
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
-                  <DropdownMenuItem>Settings</DropdownMenuItem>
-                  <DropdownMenuItem>Logout</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-          </div>
-        </header>
-
+    <div className="flex w-full bg-background text-foreground">
+      <div className="flex-1 flex flex-col  overflow-hidden">
+        {/* Navbar */}
+        <Navbar />
         {/* Main Content */}
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-background p-6">
           <h1 className="text-2xl font-semibold mb-4">Dashboard</h1>

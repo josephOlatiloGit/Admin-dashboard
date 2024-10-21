@@ -1,6 +1,6 @@
+![Admin-dashboard3000-2024-10-21-12_00_01](https://github.com/user-attachments/assets/f922d9cb-982a-49ba-b180-c87340be7786)
 
-
-
+![Admin-dashboard3000-2024-10-21-11_59_34](https://github.com/user-attachments/assets/481aa7d0-8f6f-47d4-b217-42a5db134b70)
 ![Admindash-3000-2024-10-20-10_48_36](https://github.com/user-attachments/assets/60162f65-f9db-4103-ab0e-8ac6739a9686)
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
